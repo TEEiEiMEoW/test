@@ -1,0 +1,305 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+  @font-face {
+    font-family: header;
+    src: url("../font/crewniverse.woff");
+  }
+
+  /*bg color*/
+  .gradient {
+    background: linear-gradient(300deg,#599cc3,#599ac3,#59C3C3,#88B7B5,#9bcac7,#9accca,#A7CAB1,#c1d6c6,#cce0d1,#ddccea,#d6c1e6,#b19ec0,#847996,#685980);
+    background-size: 300% 300%;
+    animation: gradient-animation 17s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /*link button CSS*/
+  .aback{
+    position: fixed;
+    margin-left: 10px;
+  }
+a{
+  padding: 15px 40px;
+  background: #ffffff;
+  opacity: 0.5;
+  border:0;
+  width: 60px;
+  border-radius: 25px;
+  color: #515856 ;
+  text-transform: uppercase;
+  font-family: helvetica;
+  font-size: 12px;
+  letter-spacing: 3px;
+  position: relative;
+  transition: all .4s cubic-bezier(-0.645, -0.045, -0.355, -1);
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+a::after,
+a::before{
+  content: "";
+  position: absolute;
+  top: 30%;
+  right: 0px;
+  transform: translateY(50%);
+    opacity: 0;
+  transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  text-decoration: none;
+}
+
+a::before{
+    content: "";
+    transform: rotate(45deg) translateX(50%);
+    width: 11px;
+    height: 11px;
+    background: transparent;
+    border-left: 1px solid #515856;
+    border-bottom: 1px solid #515856;
+    margin-top: 1px;
+}
+
+a:hover{
+  padding: 15px 60px 15px 20px;
+}
+
+a:hover::after,
+a:hover::before{
+  opacity: 1;
+  right: 15px;
+}
+/*End of link button CSS*/ 
+
+#section1 {
+  height: 1px;
+}
+#section2 {
+  height: 1px;
+}
+
+  /*Submit button CSS*/
+  .submit{
+    padding: 15px 40px;
+    background: #C0D6CF;
+    border:0;
+    border-radius: 25px;
+    color: #515856 ;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-size: 12px;
+    letter-spacing: 3px;
+    position: relative;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+  }
+  
+  .submit::after,
+  .submit::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+      opacity: 0;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  
+  .submit::after{
+      width: 30px;
+      height: 1px;
+      background: #515856;
+      transform: translateX(-3px);
+      margin-top: 0px;
+  }
+  
+  .submit::before{
+      content: "";
+      transform: rotate(-135deg) translateX(50%);
+      width: 11px;
+      height: 11px;
+      background: transparent;
+      border-left: 1px solid #515856;
+      border-bottom: 1px solid #515856;
+      margin-top: -1px;
+  }
+  
+  .submit:hover{
+    padding: 15px 60px 15px 20px;
+  }
+  
+  .submit:hover::after,
+  .submit:hover::before{
+    opacity: 1;
+    right: 15px;
+  }
+  /*End of submit button CSS*/
+  
+  /*text*/
+  .header{
+    margin-top: 40px;
+    margin-left: 26%;
+    margin-bottom: 40px;
+    font-size: 50px;
+    color: #ffffff;
+    opacity: 0.7;
+    text-shadow: 0 0 8px #000000;
+    text-transform: uppercase;
+    font-family: header;
+  }
+  .inputID{
+    margin-left: 99px;
+    margin-bottom: 30px;
+  }
+  .inputemail{
+    margin-left: 63px;
+    margin-bottom: 30px;
+  }
+  .inputactN{
+    margin-left: 78px;
+    margin-bottom: 30px;
+  }
+  .inputactT{
+    margin-left: 88px;
+    margin-bottom: 30px;
+  }
+  .inputdate{
+    margin-left: 145px;
+    margin-bottom: 30px;
+  }
+  .inputlocation{
+    margin-left: 117px;
+    margin-bottom: 30px;
+  }
+  .hiddentxt{
+    display: none;
+    color: #F73F5A;
+    font-family: inherit;
+    font-size: 12px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    margin-left: 240px;
+  }
+
+  .formbg{
+    width: 500px;
+    height: 700px;
+    margin-top: 20px;
+    margin-left: 31%;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    /*box shadow*/
+    padding: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+    /*border radius fixed at 25px for Rounded corners*/
+    border-radius: 25px; 
+    opacity: 90%;
+  }
+  .fname{
+    margin-left: 50px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #515856;
+    font-family: 'Gill Sans', sans-serif;
+  }
+  .fnameinput{
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: #515856;
+    font-family: 'Gill Sans', sans-serif;
+  }
+  .txt{
+    margin-left: 50px;
+    margin-bottom: 30px;
+    font-family: 'Gill Sans', sans-serif;
+    color: #515856;
+  }
+  .radiocssfirst{
+    margin-left: 50px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+  .radiocss{
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+  }
+  .radiocontent{
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-bottom: 30px;
+    font-family: 'Gill Sans', sans-serif;
+    color: #515856;
+  }
+
+  /*Table*/
+  .table{
+    border-collapse: collapse;
+    margin: auto;
+    font-size: 20px;
+    font-family: 'Gill Sans', sans-serif;
+    max-width: 800px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+  }
+  .table thead tr{
+    background-color: #b19ec0;
+    color: #EEF0F0;
+  }
+  .table td, .table th{
+    padding-left: 25px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .table tbody tr{
+    border-bottom: 1px solid #b19ec0;
+    background-color: #EEF0F0;
+  }
+  .table tbody tr:nth-of-type(even){
+    background-color: #EEF0F0;
+  }
+  .table tbody tr:last-of-type{
+    border-bottom: 2px solid #b19ec0;
+  }
+  .tablecontent{
+    color: #b19ec0;
+    font-family: 'Gill Sans', sans-serif;
+    margin: auto;
+    font-size: 16px;
+  }
+
+  /*
+  .bigmac{
+    background-color: #b19ec0;
+  }
+  .bigmacextrafried{
+    background-color: #EEF0F0;
+  }
+  */
+
+  /*Hide arrow in number input box*/
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  }

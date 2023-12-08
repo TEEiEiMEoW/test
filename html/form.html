@@ -1,0 +1,163 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="icon" href="../image/ICO.ico" type="image/x-icon">
+    <div class="Header">Our activities form</div>   
+    <div class="aback">
+        <a href="../index.html">Back</a>
+        <a href="#section1">Move Up</a>
+        <a href="#section2">View Table</a>
+        <a href="form.html">Reset</a>
+    </div>
+</head>
+
+<body class="gradient">
+    <div id="section1"></div>
+    <form id="form" action="" class="formbg">
+        <label for="Fullname" class="fname">Full name (in English) : </label>
+        <input type="text" id="Fullname" class="fnameinput" name="Fullname" placeholder="Name-surname"
+            required="required" oninput="validatename();"><br>
+        <div id="validname" class="hiddentxt">*Invalid name.<br> Name must contain only English Alphabet <br> Including
+            name and surname</div>
+        <!--already change into type number-->
+        <label for="StudentID" class="txt">Student ID : </label>
+        <input type="number" id="ID" name="ID" class="inputID" placeholder="Student ID" required="required"
+            oninput="validateID();"><br>
+        <div id="validID" class="hiddentxt">*Invalid ID given <br> ID must contain 10 numeric alphabet</div>
+        <label for="email" class="txt">Email (@dome) : </label>
+        <input type="email" id="email" name="email" required="required" class="inputemail" placeholder="@dome.tu.ac.th"
+            oninput="validateEmail();"><br>
+        <div id="validemail" class="hiddentxt">*Invalid Email<br> Email must contain @dome.tu.ac.th format</div>
+        <label for="ActivityName" class="txt">Activity Name :</label>
+        <input type="text" id="ActivityName" name="ActivityName" class="inputactN" required="required"><br>
+        <label for="ActivityType" class="txt">Activity Type :</label>
+        <select id="ActivityType" name="ActivityType" class="inputactT"><br>
+            <option value="" disabled="" selected="">Select a type</option>
+            <option value="Faculty Activity">Faculty Activity</option>
+            <option value="FirstMeet">First Meet</option>
+            <option value="Training">Training</option>
+            <option value="Sports">Sports</option>
+            <option value="Trips">Trips</option>
+            <option value="Events">Events</option>
+            <option value="Others">Others</option>
+        </select><br>
+        <label for="Date" class="txt">Date : </label>
+        <input type="date" id="Date" name="Date" required="required" class="inputdate"><br>
+        <label for="location" class="txt">Location : </label>
+        <input type="text" id="location" name="location" required="required" class="inputlocation"><br>
+        <!--Radio-->
+        <label for="Satisfy" class="txt">Activity's Satisfaction</label><br>
+        <!--choice-->
+        <input type="radio" id="rate" name="radio" class="radiocssfirst" value="Love it!">
+        <label for="radio" class="radiocontent">Love it!</label>
+        <input type="radio" id="rate" name="radio" class="radiocss" value="Neutral">
+        <label for="radio" class="radiocontent">Neutral</label>
+        <input type="radio" id="rate" name="radio" class="radiocss" value="It's need some improvement">
+        <label for="radio" class="radiocontent">Need improvement</label>
+        <!--Submit + function output triggered-->
+        <button type="submit" class="submit" onclick="output();">Submit</button>
+    </form>
+    <div id="section2"></div>
+    <table class="table" id="table">
+        <thead>
+            <th>Activitiy Name</th>
+            <th>Activity Type</th>
+            <th>Date</th>
+            <th>location</th>
+            <th>submitted by</th>
+            <th>How's the event went?</th>
+        </thead>
+        <tbody id="table">
+            <tr>
+                <div id="cell1" class="tablecontent"></div>
+                <div id="cell2" class="tablecontent"></div>
+                <div id="cell3" class="tablecontent"></div>
+                <div id="cell4" class="tablecontent"></div>
+                <div id="cell5" class="tablecontent"></div>
+                <div id="cell6" class="tablecontent"></div>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function validatename() {
+            var regname = /^[a-zA-Z]+ [a-zA-Z]+$/;
+            var Fullname = document.getElementById('Fullname').value;
+            var validname = document.getElementById('validname');
+            if (!regname.test(Fullname)) {
+                document.getElementById("validname").style.display = 'block';
+                document.getElementById("Fullname").focus();
+            }
+            else {
+                document.getElementById("validname").style.display = 'none';
+                return true;
+            }
+        }
+        function validateID() {
+            var regID = /^[6]+[0-6]+[0-9]+$/;
+            var ID = document.getElementById('ID').value;
+            if (ID.length > 10 || ID.length < 10 || !regID.test(ID)) {
+                document.getElementById("validID").style.display = 'block';
+                document.getElementById("ID").focus();
+            }
+            else {
+                document.getElementById("validID").style.display = 'none';
+                return true;
+            }
+        }
+        function validateEmail() {
+            var regEmail = /^[a-zA-Z.]+[@dome.tu.ac.th]+$/;
+            var email = document.getElementById('email').value;
+            if (!regEmail.test(email)) {
+                document.getElementById("validemail").style.display = 'block';
+                document.getElementById("email").focus();
+            }
+            else {
+                document.getElementById("validemail").style.display = 'none';
+                return true;
+            }
+        }
+        function output() {
+            //declared variables
+            event.preventDefault();
+            var fullname = document.getElementById('Fullname').value;
+            var SID = document.getElementById('ID').value;
+            var email = document.getElementById('email').value;
+            var actN = document.getElementById('ActivityName').value;
+            var actT = document.getElementById('ActivityType').value;
+            var date = document.getElementById('Date').value;
+            var location = document.getElementById('location').value;
+            var radio = document.querySelector('input[name="radio"]:checked').value;
+
+            var table = document.getElementById('table').getElementsByTagName('tbody')[0];
+            var newrow = table.insertRow(table.rows.length);
+            var cell1 = newrow.insertCell(0);
+            var cell2 = newrow.insertCell(1);
+            var cell3 = newrow.insertCell(2);
+            var cell4 = newrow.insertCell(3);
+            var cell5 = newrow.insertCell(4);
+            var cell6 = newrow.insertCell(5);
+
+            cell1.innerHTML = actN;
+            cell2.innerHTML = actT;
+            cell3.innerHTML = date;
+            cell4.innerHTML = location;
+            cell5.innerHTML = fullname + '<br>' + SID + '<br>' + email;
+            cell6.innerHTML = radio;
+
+            //reset values
+            document.getElementById('cell1').value = '';
+            document.getElementById('cell2').value = '';
+            document.getElementById('cell3').value = '';
+            document.getElementById('cell4').value = '';
+            document.getElementById('cell5').value = '';
+            document.getElementById('cell6').value = '';
+
+            document.getElementById('form').removeEventListener('submit', output)
+        }
+        document.getElementById('form').addEventListener('submit', output)
+        /*จบงานนี้ถวายน้ำแดงให้ chatgpt กับ stackoverflow ด่วน*/
+    </script>
+</body>
+
+</html>
